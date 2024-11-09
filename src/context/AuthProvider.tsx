@@ -7,6 +7,7 @@ interface State {
   authToken: string;
   totalQuestions: number;
   timePerQuestion: number; //in seconds
+  testType: string;
 }
 
 interface Props {
@@ -17,8 +18,9 @@ const initialState: State = {
   username: '',
   loggedIn: false,
   authToken: '',
-  totalQuestions: 0,
-  timePerQuestion: 30,
+  totalQuestions: 2,
+  timePerQuestion: 600,
+  testType: 'code'
 };
 
 const AuthContext = createContext<{
@@ -36,6 +38,7 @@ type Action =
       authToken: string;
       totalQuestions: number;
       timePerQuestion: number;
+      testType: string;
     }
   | { type: 'LOGOUT' };
 
@@ -48,6 +51,7 @@ const authReducer = (state: State, action: Action): State => {
         authToken: action.authToken,
         totalQuestions: Number(action.totalQuestions),
         timePerQuestion: Number(action.timePerQuestion),
+        testType: action.testType
       };
     case 'LOGOUT':
       return initialState;

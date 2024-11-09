@@ -26,8 +26,9 @@ const Login = () => {
           type: 'LOGIN',
           username: username,
           authToken: response.data.token,
-          totalQuestions: response.data.question_limit,
+          totalQuestions: parseInt(response.data.question_limit),
           timePerQuestion: response.data.time_per_question,
+          testType: response.data.test_type,
         });
       } else {
         setErrorMessage('Some error occured. Please try again');

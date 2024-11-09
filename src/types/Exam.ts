@@ -11,6 +11,17 @@ export interface QuestionData {
   question_id: string;
 }
 
+
+export interface CodingQuestionData{
+  number: number,
+  title: string,
+  test_id: string,
+  desc: string,
+  examples:Array<string>,
+  testcases:Array<string>,
+}
+
+
 export interface Stats {
   attemptedQuestions: number;
   skippedQuestions: number;
